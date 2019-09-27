@@ -6,10 +6,14 @@
 * Graphviz
 
 ## インストール方法
+TBD 
 
 ## 使い方
 
 ### 指定したアカウントのフォロワー一覧を表示する
 
+```sh
+$ birdwatch followers @account
+```
 
-### TBD 
+
