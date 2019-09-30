@@ -1,12 +1,12 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace birdwatch
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static int GetNum()
         {
-            Console.WriteLine("Hello World!");
+            return 1;
         }
     }
 }
