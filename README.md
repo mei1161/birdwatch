@@ -1,16 +1,16 @@
 # birdwatch
+ツイッターアカウントが視覚化できるCLI
 
-## �O�����
-* C# 8.0
+## 前提条件
 * .NET Core 3.0
 * Graphviz
 
-## �C���X�g�[�����@
+## インストール方法
 TBD 
 
-## �g����
+## 使い方
 
-### �w�肵���A�J�E���g�̃t�H�����[�ꗗ��\������
+### 指定したアカウントのフォロワー一覧を表示する
 
 ```sh
 $ birdwatch followers @account
