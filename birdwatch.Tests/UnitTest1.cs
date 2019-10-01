@@ -6,10 +6,10 @@ namespace birdwatch.Tests
     public class Tests
     {
         [Test]
-        public void iequal0()
+        public void Test1()
         {
-         var i=Program.GetNum();
-         Assert.That(i==0);
+            string i = Program.GetWhen();
+            Assert.That(i.Equals("Twitter"));
         }
     }
 }

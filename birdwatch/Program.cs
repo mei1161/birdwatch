@@ -4,9 +4,13 @@ namespace birdwatch
 {
     public class Program
     {
-        public static int GetNum()
+       public static string GetWhen()
         {
-            return 1;
+            return "Twitter";
+        }
+        static void Main() 
+        {
+            Console.WriteLine(GetWhen());
         }
     }
 }
