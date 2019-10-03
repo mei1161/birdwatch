@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 namespace birdwatch
 {
-    public class Program
+public class Account
     {
-       public static string GetWhen()
+        public string AccountName;//アカウント名
+        
+        public string GetAccount(string val)//アカウント名取得
         {
-            return "Twitter";
+            if (val.Equals(AccountName))
+            {
+                return AccountName;
+            }
+            else
+            {
+                return "NoAccount";
+            }
         }
-        static void Main() 
-        {
-            Console.WriteLine(GetWhen());
-        }
+
     }
+
 }
