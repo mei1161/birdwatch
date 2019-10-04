@@ -4,6 +4,7 @@
 ## 前提条件
 * .NET Core 3.0
 * Graphviz
+* TwitterApiの登録を済ませていること。
 
 ## インストール方法
 TBD 
