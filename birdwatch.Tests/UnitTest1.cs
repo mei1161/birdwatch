@@ -8,7 +8,7 @@ namespace birdwatch.Tests
 {
     public class MockTwitterApi :ITwitterApi
     {
-        public IEnumerable<string> GetFollowers()
+        public IEnumerable<string> GetFollowers(string username)
         {
             yield return "@mei";
         }
@@ -16,16 +16,12 @@ namespace birdwatch.Tests
 
     public class Tests
     {
-        //Given: 自分
-        //When: フォロワー一覧を取得
-        //Then: meiを取得できる
-        //GWTStyle
-
         [Test]
-        public void 自分のアカウントからフォロワー取得できる()
+        public void 指定したアカウントからフォロワー取得できる()
         {
+            var username = "@mei_1161";
             var twiterapi = new MockTwitterApi();
-            var followers =twiterapi.GetFollowers();
+            var followers =twiterapi.GetFollowers(username);
             Assert.That(followers, Is.SupersetOf(new[] { "@mei" }));
         }
 
@@ -34,8 +30,17 @@ namespace birdwatch.Tests
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
             var twitterApi = new TwitterApi(configuration);
-            var followers = twitterApi.GetFollowers();
+            var followers = twitterApi.GetFollowers("@mei_9961");
             Assert.That(followers, Is.SupersetOf(new[] { "@nectarim" }));
+        }
+
+        [Test]
+        public void 実際のAPIでayaのアカウントを指定してフォロワーを取得するとmeiが取得できる()
+        {
+            var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
+            var twitterApi = new TwitterApi(configuration);
+            var followers = twitterApi.GetFollowers("@nectarim");
+            Assert.That(followers, Is.SupersetOf(new[] { "@mei_9961" }));
         }
 
     }

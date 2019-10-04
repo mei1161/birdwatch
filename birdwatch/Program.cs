@@ -4,9 +4,8 @@ namespace birdwatch
 {
     public class Account
     {
-        static void Main()
+        static void Main(string[] args)
         {
-
         }
     } 
 
