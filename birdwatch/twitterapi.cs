@@ -4,7 +4,8 @@ using System.Text;
 
 namespace birdwatch
 {
-    public class TwitterApi
+    public interface ITwitterApi
     {
+        public IEnumerable<string> GetFollowers();
     }
 }

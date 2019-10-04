@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 namespace birdwatch.Tests
 {
-    public class twitterApi
+    public class MockTwitterApi :ITwitterApi
     {
         public IEnumerable<string> GetFollowers()
         {
@@ -22,7 +22,7 @@ namespace birdwatch.Tests
         [Test]
         public void 自分のアカウントからフォロワー取得できる()
         {
-            var twiterapi = new twitterApi();
+            var twiterapi = new MockTwitterApi();
             var followers =twiterapi.GetFollowers();
             Assert.That(followers, Is.SupersetOf(new[] { "@mei" }));
         }
