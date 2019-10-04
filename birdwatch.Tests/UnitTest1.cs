@@ -14,13 +14,13 @@ namespace birdwatch.Tests
 
     public class Tests
     {
-        //Given: ©•ª
-        //When: ƒtƒHƒƒ[ˆê——‚ğæ“¾
-        //Then: mei‚ğæ“¾‚Å‚«‚é
+        //Given: è‡ªåˆ†
+        //When: ãƒ•ã‚©ãƒ­ãƒ¯ãƒ¼ä¸€è¦§ã‚’å–å¾—
+        //Then: meiã‚’å–å¾—ã§ãã‚‹
         //GWTStyle
 
         [Test]
-        public void ©•ª‚ÌƒAƒJƒEƒ“ƒg‚©‚çƒtƒHƒƒ[æ“¾‚Å‚«‚é()
+        public void è‡ªåˆ†ã®ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‹ã‚‰ãƒ•ã‚©ãƒ­ãƒ¯ãƒ¼å–å¾—ã§ãã‚‹()
         {
             var twiterapi = new twitterApi();
             var followers =twiterapi.GetFollowers();
