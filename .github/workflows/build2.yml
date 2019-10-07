@@ -13,4 +13,4 @@ jobs:
       with:
         name: artifact
         path: ./birdwatch/bin/Release/netcoreapp3.0/
-    - run: dotnet run --configuration Release --project ./birdwatch/
+   
