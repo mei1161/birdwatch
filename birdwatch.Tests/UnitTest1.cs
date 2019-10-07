@@ -25,7 +25,7 @@ namespace birdwatch.Tests
             Assert.That(followers, Is.SupersetOf(new[] { "@mei" }));
         }
 
-        [Test]
+        [Test,Explicit]
         public void 実際のAPIでmeiのアカウントを指定してフォロワーを取得するとayaが取得できる()
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
@@ -34,7 +34,7 @@ namespace birdwatch.Tests
             Assert.That(followers, Is.SupersetOf(new[] { "@nectarim" }));
         }
 
-        [Test]
+        [Test,Explicit]
         public void 実際のAPIでayaのアカウントを指定してフォロワーを取得するとmeiが取得できる()
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
