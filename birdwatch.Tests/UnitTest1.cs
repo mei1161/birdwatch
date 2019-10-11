@@ -12,6 +12,10 @@ namespace birdwatch.Tests
         {
             yield return "@mei";
         }
+        public IEnumerable<string> GetFollowList(string username)
+        {
+            yield return "@mei";
+        }
     }
 
     public class Tests
@@ -41,6 +45,22 @@ namespace birdwatch.Tests
             var twitterApi = new TwitterApi(configuration);
             var followers = twitterApi.GetFollowers("@nectarim");
             Assert.That(followers, Is.SupersetOf(new[] { "@mei_9961" }));
+        }
+        [Test]
+        public void 指定したアカウントからフォローリストを取得できる()
+        {
+            var username = "@mei_1161";
+            var twiterapi = new MockTwitterApi();
+            var followlist =twiterapi.GetFollowList(username);
+            Assert.That(followlist, Is.SupersetOf(new[] { "@mei" }));
+        }
+        [Test,Explicit]
+        public void 実際のAPIでayaのアカウントを指定してフォローリストを取得するとmeiが取得できる()
+        {
+            var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
+            var twitterApi = new TwitterApi(configuration);
+            var followlist = twitterApi.GetFollowList("@nectarim");
+            Assert.That(followlist, Is.SupersetOf(new[] { "@mei_9961" }));
         }
 
     }

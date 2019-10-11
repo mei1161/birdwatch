@@ -42,6 +42,7 @@ namespace birdwatch
     public interface ITwitterApi
     {
         public IEnumerable<string> GetFollowers(string username);
+        public IEnumerable<string> GetFollowList(string username);
     }
     // GoF Adapter pattern
     public class TwitterApi : ITwitterApi
@@ -65,6 +66,21 @@ namespace birdwatch
                 nextCursor = list.NextCursor;
             }
             return followers.Select(u => "@" + u.ScreenName);
+        }
+        public IEnumerable<string> GetFollowList(string username)
+        {
+            var tokens = configuration.CreateTokens(); 
+            var users = tokens.Friends;
+            var followlist = new List<User>();
+            var nextCursor = -1L;
+            while (true)
+            {
+                var list = users.List(username.Replace("@", ""), cursor: nextCursor, count: 200);
+                followlist.AddRange(list);
+                if (list.Count == 0) break;
+                nextCursor = list.NextCursor;
+            }
+            return followlist.Select(u => "@" + u.ScreenName);
         }
     }
 }
