@@ -16,6 +16,10 @@ namespace birdwatch.Tests
         {
             yield return "@mei";
         }
+        public IEnumerable<string> GetFavorite(string username)
+        {
+            yield return "@mei";
+        }
     }
 
     public class Tests
@@ -25,23 +29,23 @@ namespace birdwatch.Tests
         {
             var username = "@mei_1161";
             var twiterapi = new MockTwitterApi();
-            var followers =twiterapi.GetFollowers(username);
+            var followers = twiterapi.GetFollowers(username);
             Assert.That(followers, Is.SupersetOf(new[] { "@mei" }));
         }
 
-        [Test,Explicit]
+        [Test, Explicit]
         public void 実際のAPIでmeiのアカウントを指定してフォロワーを取得するとayaが取得できる()
         {
-            var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
+            var configuration = Configuration.Parse(@"conf\birdwatch.json");
             var twitterApi = new TwitterApi(configuration);
             var followers = twitterApi.GetFollowers("@mei_9961");
             Assert.That(followers, Is.SupersetOf(new[] { "@nectarim" }));
         }
 
-        [Test,Explicit]
+        [Test, Explicit]
         public void 実際のAPIでayaのアカウントを指定してフォロワーを取得するとmeiが取得できる()
         {
-            var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
+            var configuration = Configuration.Parse(@"conf\birdwatch.json");
             var twitterApi = new TwitterApi(configuration);
             var followers = twitterApi.GetFollowers("@nectarim");
             Assert.That(followers, Is.SupersetOf(new[] { "@mei_9961" }));
@@ -51,16 +55,25 @@ namespace birdwatch.Tests
         {
             var username = "@mei_1161";
             var twiterapi = new MockTwitterApi();
-            var followlist =twiterapi.GetFollowList(username);
+            var followlist = twiterapi.GetFollowList(username);
             Assert.That(followlist, Is.SupersetOf(new[] { "@mei" }));
         }
-        [Test,Explicit]
+        [Test, Explicit]
         public void 実際のAPIでayaのアカウントを指定してフォローリストを取得するとmeiが取得できる()
         {
-            var configuration = Configuration.Parse(@"conf\birdwatch.json"); 
+            var configuration = Configuration.Parse(@"conf\birdwatch.json");
             var twitterApi = new TwitterApi(configuration);
             var followlist = twitterApi.GetFollowList("@nectarim");
             Assert.That(followlist, Is.SupersetOf(new[] { "@mei_9961" }));
+        }
+        [Test] 
+        public void 指定したアカウントのお気に入りしたツイートを取得()
+        {
+            var username = "@mei_9961";
+            var twitterApi = new MockTwitterApi();
+            var favorite = twitterApi.GetFavorite(username);
+            Assert.That(favorite, Is.SupersetOf(new[] { "@mei" }));
+
         }
 
     }

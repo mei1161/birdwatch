@@ -47,14 +47,14 @@ namespace birdwatch
     // GoF Adapter pattern
     public class TwitterApi : ITwitterApi
     {
-        private readonly Configuration configuration; 
+        private readonly Configuration configuration;
         public TwitterApi(Configuration configuration)
         {
             this.configuration = configuration;
         }
         public IEnumerable<string> GetFollowers(string username)
         {
-            var tokens = configuration.CreateTokens(); 
+            var tokens = configuration.CreateTokens();
             var users = tokens.Followers;
             var followers = new List<User>();
             var nextCursor = -1L;
@@ -69,7 +69,7 @@ namespace birdwatch
         }
         public IEnumerable<string> GetFollowList(string username)
         {
-            var tokens = configuration.CreateTokens(); 
+            var tokens = configuration.CreateTokens();
             var users = tokens.Friends;
             var followlist = new List<User>();
             var nextCursor = -1L;
@@ -81,6 +81,17 @@ namespace birdwatch
                 nextCursor = list.NextCursor;
             }
             return followlist.Select(u => "@" + u.ScreenName);
+        }
+        public IEnumerable<Status> GetFavorite(string username)
+        {
+            var tokens = configuration.CreateTokens();
+            var users = tokens.Users;
+            var FavoriteList = new List<Status>();
+            var nextCursor = -1L;
+            while (true)
+            {
+            }
+            return FavoriteList;
         }
     }
 }

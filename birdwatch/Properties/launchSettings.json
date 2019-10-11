@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "birdwatch": {
+      "commandName": "Project",
+      "commandLineArgs": "birdwatch"
+    }
+  }
+}
