@@ -76,12 +76,12 @@ namespace birdwatch.Tests
 
         }
 
-        [Test,Explicit]
+        [Test]
         public void 実際のAPIを使って指定したアカウントのお気に入りしたツイート5件を取得()
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json");
-            var tokens = configuration.CreateTokens();
-            var favoritelist = tokens.Favorites.List(screen_name: "@mei_9961", count: 5);
+            var twitterapi = new TwitterApi(configuration);
+            var favoritelist = twitterapi.GetFavorite("@mei_9961");
             Assert.That(favoritelist.ToList(), Has.Count.EqualTo(5));
         }
 
