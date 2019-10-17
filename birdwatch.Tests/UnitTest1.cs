@@ -81,8 +81,8 @@ namespace birdwatch.Tests
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json");
             var tokens = configuration.CreateTokens();
-            var FavoriteList = tokens.Favorites.List(screen_name: "@mei_9961", count: 5);
-            Assert.That(FavoriteList.ToList(), Has.Count.EqualTo(5));
+            var favoritelist = tokens.Favorites.List(screen_name: "@mei_9961", count: 5);
+            Assert.That(favoritelist.ToList(), Has.Count.EqualTo(5));
         }
 
 

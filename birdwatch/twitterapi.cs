@@ -82,11 +82,12 @@ namespace birdwatch
             }
             return followlist.Select(u => "@" + u.ScreenName);
         }
+        //お気に入りした直近5ツイートを取得
         public IEnumerable<Status> GetFavorite(string username)
         {
             var tokens = configuration.CreateTokens();
-            var FavoriteList=tokens.Favorites.List(screen_name:"@mei_9961",count:5);
-            return FavoriteList;
+            var favoritelist = tokens.Favorites.List(screen_name: "@mei_9961", count: 5);
+            return favoritelist;
         }
     }
 }
