@@ -76,7 +76,7 @@ namespace birdwatch.Tests
 
         }
 
-        [Test]
+        [Test,Explicit]
         public void 実際のAPIを使って指定したアカウントのお気に入りしたツイート5件を取得()
         {
             var configuration = Configuration.Parse(@"conf\birdwatch.json");
