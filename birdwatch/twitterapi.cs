@@ -85,7 +85,7 @@ namespace birdwatch
         public IEnumerable<Status> GetFavorite(string username)
         {
             var tokens = configuration.CreateTokens();
-            var FavoriteList = new List<Status>();
+            var FavoriteList=tokens.Favorites.List(screen_name:"@mei_9961",count:5);
             return FavoriteList;
         }
     }

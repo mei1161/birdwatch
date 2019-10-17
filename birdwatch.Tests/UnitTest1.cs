@@ -76,5 +76,15 @@ namespace birdwatch.Tests
 
         }
 
+        [Test,Explicit]
+        public void 実際のAPIを使って指定したアカウントのお気に入り下ツイート5件を取得()
+        {
+            var configuration = Configuration.Parse(@"conf\birdwatch.json");
+            var tokens = configuration.CreateTokens();
+            var FavoriteList = tokens.Favorites.List(screen_name: "@mei_9961", count: 5);
+            Assert.That(FavoriteList.ToList(), Has.Count.EqualTo(5));
+        }
+
+
     }
 }
