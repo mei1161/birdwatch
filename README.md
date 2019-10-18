@@ -12,7 +12,7 @@ TBD
 
 ## 使い方
 アクセスするには、TwitterAPIの```ConsumerKey``` ```ConsumerSercret``` ```AccsessToken``` ```AccsessSercret```が必要です。
-birdwatchフォルダの直下に```conf``フォルダを作り、フォルダ内に```birdwatch.json```を作り、以下のように記述して下さい。
+birdwatchフォルダの直下に```conf```フォルダを作り、フォルダ内に```birdwatch.json```を作り、以下のように記述して下さい。
 ※ダブルクォーテーション内に自身のキーを記述してください。
 ```json
 {
@@ -29,5 +29,4 @@ birdwatchフォルダの直下に```conf``フォルダを作り、フォルダ�
 ```sh
 $ birdwatch followers @account
 ```
-
 
